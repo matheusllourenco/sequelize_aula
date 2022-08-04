@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes ordenados por classificação</title>
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1>FILMES ORDENADOS POR CLASSIFICAÇÃO</h1>
+    <ul>
+        <% movies.forEach(movie=> { %>
+            <li>
+                <a href="/movies/<%= movie.id %>">
+                    <%= movie.title %>
+                </a> <br>
+                <%= 'RATING: ' + movie.rating %>
+            </li>
+            <% }) %>
+
+    </ul>
+</body>
+
+</html>
