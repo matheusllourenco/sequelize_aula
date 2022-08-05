@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Filmes</title>
-    <link rel='stylesheet' href='/css/style.css' />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Filmes</title>
+  <link rel='stylesheet' href='/css/style.css' />
 
 </head>
 
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1>LISTA DE FILMES</h1>
-    <ul>
-        <% movies.forEach(movie=> { %>
-            <li>
-                <a href="/movies/detail/<%= movie.id %>">
-                    <%= movie.title %>
-                </a>
-            </li>
-            <% }) %>
-    </ul>
+  <figure>
+    <img src="/img/logo-DH.png" alt="Logo Digital House">
+  </figure>
+  <h1>LISTA DE FILMES</h1>
+  <ul>
+    <% movies.forEach(movie=> { %>
+      <li>
+        <a href="/movies/<%= movie.id %>">
+          <%= movie.title %>
+        </a>
+      </li>
+      <% }) %>
+  </ul>
 </body>
 
 </html>
