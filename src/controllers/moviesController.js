@@ -1,4 +1,5 @@
 const { Op } = require("sequelize");
+const sequelize = require("../database/config");
 const movieModel = require("../database/models/MovieModel");
 
 const moviesController = {
@@ -23,6 +24,14 @@ const moviesController = {
     // });
 
     response.render("moviesDetail", { movie: movie });
+  },
+  addMovieScreen: async (request, response) => {
+    response.render("moviesAdd");
+  },
+  create: async (request, response) => {
+    console.log(request.body);
+
+    response.render("moviesAdd");
   },
 };
 
