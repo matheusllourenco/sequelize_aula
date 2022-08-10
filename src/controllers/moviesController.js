@@ -35,6 +35,43 @@ const moviesController = {
 
     response.redirect("/movies");
   },
+  updateMovieScreen: async (request, response) => {
+    const { id } = request.params;
+
+    const movie = await movieModel.findByPk(id);
+
+    const releaseDate = new Date(movie.releaseDate).toISOString().split("T")[0];
+
+    response.render("moviesEdit", {
+      movie: { ...movie.toJSON(), releaseDate },
+    });
+  },
+  update: async (request, response) => {
+    const { title, rating, releaseDate, awards, length } = request.body;
+    const { id } = request.params;
+
+    movieModel.update(
+      { title, rating, releaseDate, awards, length },
+      { where: { id } }
+    );
+
+    response.redirect(`/movies/${id}`);
+  },
+  deleteMovieScreen: async (request, response) => {
+    const { id } = request.params;
+
+    const movie = await movieModel.findByPk(id);
+
+    response.render("moviesDelete", { movie });
+  },
+  delete: async (request, response) => {
+    const { id } = request.params;
+
+    // soft-delete
+    await movieModel.destroy({ where: { id }, force: true });
+
+    response.redirect("/movies");
+  },
 };
 
 module.exports = moviesController;
