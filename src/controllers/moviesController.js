@@ -29,9 +29,11 @@ const moviesController = {
     response.render("moviesAdd");
   },
   create: async (request, response) => {
-    console.log(request.body);
+    const { title, rating, releaseDate, awards, length } = request.body;
 
-    response.render("moviesAdd");
+    await movieModel.create({ title, rating, releaseDate, awards, length });
+
+    response.redirect("/movies");
   },
 };
 
