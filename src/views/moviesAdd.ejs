@@ -27,6 +27,17 @@
       <label for="length">Length </label>
       <p><input type="number" name="length" id="" required></p>
 
+      <p>
+        <select name="genreId" required>
+          <option value="" disabled selected>- select genre - </option>
+          <% genres.forEach(genre=> { %>
+            <option value="<%= genre.id %>">
+              <%= genre.name %>
+            </option>
+            <% }); %>
+        </select>
+      </p>
+
       <br>
       <p> <button class="botaoAdicionar" type="submit">Adicionar</button>
 

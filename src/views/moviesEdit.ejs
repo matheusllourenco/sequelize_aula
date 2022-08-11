@@ -12,21 +12,32 @@
   <figure>
     <img src="/img/logo-DH.png" alt="Logo Digital House">
   </figure>
-  <h1 class="titulo">Filme a Editar: <%= Movie.title %>
+  <h1 class="titulo">Filme a Editar: <%= movie.title %>
   </h1>
   <section class="formulario">
-    <form action="/movies/<%= Movie.id %>" method="POST">
+    <form action="/movies/<%= movie.id %>?_method=PUT" method="post">
       <label for="title">Title </label>
-      <p><input type="text" name="title" id="title" value="<%= Movie.title %>" required></p>
+      <p><input type="text" name="title" id="title" value="<%= movie.title %>" required></p>
       <label for="rating">Rating </label>
-      <p><input type="number" name="rating" id="rating" value="<%= Movie.rating %>" required></p>
+      <p><input type="number" name="rating" id="rating" value="<%= movie.rating %>" required></p>
       <label for="awards">Awards </label>
-      <p><input type="number" name="awards" id="awards" value="<%= Movie.awards %>" required></p>
+      <p><input type="number" name="awards" id="awards" value="<%= movie.awards %>" required></p>
       <label for="release_date">Release date </label>
-      <p><input type="date" name="release_date" id="release_date" value="<%= Movie.release_date %>" required></p>
+      <p><input type="date" name="releaseDate" id="release_date" value="<%= movie.releaseDate %>" required></p>
       <label for="length">Length </label>
-      <p><input type="number" name="length" id="" value="<%= Movie.length %>" required></p>
+      <p><input type="number" name="length" id="" value="<%= movie.length %>" required></p>
       <br>
+      <p>
+        <select name="genreId" id="" required>
+          <% genres.forEach(genre=> { %>
+            <option value="<%= genre.id %>" <% if (movie.genre.id==genre.id) { %>
+              <%= 'selected' %>
+                <% }; %>><%= genre.name %>
+            </option>
+            <% }); %>
+        </select>
+      </p>
+
       <p> <button class="botaoAtualizar" type="submit">Atualizar</button>
 
         <a class="botaoVoltar" href="/movies">Lista de Filmes</a>

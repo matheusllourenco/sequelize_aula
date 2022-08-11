@@ -1,35 +1,29 @@
 const { DataTypes } = require("sequelize");
 
 const sequelize = require("../config");
-const Genre = require("./GenreModel");
 
-const Movie = sequelize.define(
-  "Movie",
+const Actor = sequelize.define(
+  "Actor",
   {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    title: {
+    firstName: {
       type: DataTypes.STRING,
+      field: 'first_name'
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      field: 'last_name'
     },
     rating: {
       type: DataTypes.INTEGER,
     },
-    length: {
+    favoriteMovieId: {
       type: DataTypes.INTEGER,
-    },
-    awards: {
-      type: DataTypes.INTEGER,
-    },
-    releaseDate: {
-      type: DataTypes.DATE,
-      field: "release_date",
-    },
-    genreId: {
-      type: DataTypes.INTEGER,
-      field: 'genre_id'
+      field: 'favorite_movie_id'
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -41,11 +35,11 @@ const Movie = sequelize.define(
     },
   },
   {
-    tableName: "movies",
+    tableName: "actors",
     timestamps: true,
     createdAt: "createdAt",
     updatedAt: "updatedAt",
   }
 );
 
-module.exports = Movie;
+module.exports = Actor;

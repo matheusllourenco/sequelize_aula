@@ -12,9 +12,9 @@
   <figure>
     <img src="/img/logo-DH.png" alt="Logo Digital House">
   </figure>
-  <h1>Tem certeza que deseja deletar esse filme: <%= Movie.title %>???</h1>
+  <h1>Tem certeza que deseja deletar esse filme: <%= movie.title %>???</h1>
   <p>
-  <form action="/movies/<%= Movie.id %>" method="POST">
+  <form action="/movies/<%= movie.id %>?_method=DELETE" method="POST">
     <br>
     <p> <button class="botaoDeletar" type="submit">Deletar o filme</button>
 
