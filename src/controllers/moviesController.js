@@ -6,7 +6,9 @@ const moviesController = {
   index: async (request, response) => {
     // SELECT * FROM movies;
     // const movies = await movieModel.findAll();
-    const movies = await movieModel.findAll();
+    const movies = await movieModel.findAll({
+      include: ['genre']
+    });
     // console.log(movies);
 
     response.render("moviesList", { movies });

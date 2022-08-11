@@ -48,4 +48,9 @@ const Movie = sequelize.define(
   }
 );
 
+Movie.belongsTo(Genre, {
+  as: 'genre',
+  foreignKey: 'genreId'
+});
+
 module.exports = Movie;
