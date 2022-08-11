@@ -27,6 +27,17 @@
       <label for="length">Length </label>
       <p><input type="number" name="length" id="" value="<%= movie.length %>" required></p>
       <br>
+      <p>
+        <select name="genreId" id="" required>
+          <% genres.forEach(genre=> { %>
+            <option value="<%= genre.id %>" <% if (movie.genre.id==genre.id) { %>
+              <%= 'selected' %>
+                <% }; %>><%= genre.name %>
+            </option>
+            <% }); %>
+        </select>
+      </p>
+
       <p> <button class="botaoAtualizar" type="submit">Atualizar</button>
 
         <a class="botaoVoltar" href="/movies">Lista de Filmes</a>
