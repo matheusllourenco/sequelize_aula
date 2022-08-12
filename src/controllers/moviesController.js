@@ -1,6 +1,4 @@
-const { Op } = require("sequelize");
-const sequelize = require("../database/config");
-const movieModel = require("../database/models/MovieModel");
+const { movieModel } = require("../database");
 
 const moviesController = {
   index: async (request, response) => {
