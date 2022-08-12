@@ -27,8 +27,17 @@
   </p>
   <p>RELEASE DATE: <%= movie.release_date %>
   </p>
-  <a href="/movies/edit/<%= movie.id %>">Editar</a>
-  <a href="/movies/delete/<%= movie.id %>">Apagar</a>
+  <p>Filme Genero: <%= movie.genre.name %>
+  </p>
+
+  <% movie.actors.forEach(actor=> { %>
+    <p>
+      <%= actor.firstName %>
+    </p>
+    <% }) %>
+
+      <a href="/movies/edit/<%= movie.id %>">Editar</a>
+      <a href="/movies/delete/<%= movie.id %>">Apagar</a>
 </body>
 
 </html>

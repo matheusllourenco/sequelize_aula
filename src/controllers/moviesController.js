@@ -4,17 +4,16 @@ const moviesController = {
   index: async (request, response) => {
     // SELECT * FROM movies;
     // const movies = await movieModel.findAll();
-    const movies = await movieModel.findAll({
-      include: ['genre']
-    });
-    // console.log(movies);
+    const movies = await movieModel.findAll();
 
     response.render("moviesList", { movies });
   },
   show: async (request, response) => {
     const { id } = request.params;
 
-    const movie = await movieModel.findByPk(id);
+    const movie = await movieModel.findByPk(id, {
+      include: ['actors', 'genre'],
+    });
     // const movie = await movieModel.findOne({
     //   where: {
     //     awards: {
@@ -23,7 +22,9 @@ const moviesController = {
     //   },
     // });
 
-    response.render("moviesDetail", { movie: movie });
+    console.log(movie);
+
+    response.render("moviesDetail", { movie });
   },
   addMovieScreen: async (request, response) => {
     response.render("moviesAdd");
