@@ -7,12 +7,7 @@ const db = {
   actorMovieModel: require('./models/ActorMovieModel')(sequelize),
 }
 
-// ['genreModel', 'actorModel', 'movie'];
-
-console.log(Object.keys(db));
-
 Object.keys(db).forEach(modelName => {
-  console.log(modelName)
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
